@@ -1,6 +1,7 @@
 import numpy as np
 import os
-import scipy.spatial
+import scipy.spatial as sp
+from scipy.spatial import distance_matrix
 
 
 def lee_coordenadas_atomo(linea):
@@ -25,18 +26,32 @@ def obtiene_coordenadas(estructura):
                 coordenadas.append(atomo)
     return np.array(coordenadas)
 
+
 # Coordenadas_1 tiene las coordenadas de la proteína A en formato numpy
-coordenadas_1 = obtiene_coordenadas('data/1PPE_rec.pdb')
+coordenadas_1 = obtiene_coordenadas('es_data_1PPE_rec.pdb')
+print(coordenadas_1)
 
 # Coordenadas_2 tiene las coordenadas de la proteína B en formato numpy
-coordenadas_2 = obtiene_coordenadas('data/1PPE_lig.pdb')
+coordenadas_2 = obtiene_coordenadas('es_data_1PPE_lig.pdb')
+print(coordenadas_2)
 
-# Código a completar:
-atomos_A_B = 0
-print("Número de átomos de A en contacto con B: ", atomos_A_B)
 
-atomos_B_A = 0
-print("Número de átomos de B en contacto con A: ", atomos_B_A)
 
-# Finalmente, el número de átomos total será la suma de ambos:
-print("Número total de átomos en contacto: ", atomos_A_B + atomos_B_A)
+#Vamos a calcular las distancias
+def distancia(a,b,n):
+    #d = distance_matrix(a,b)
+    dA_B = sp.distance.cdist(a, b)
+    dB_A = sp.distance.cdist(b, a)
+    print(len(dB_A))
+    print(len(dA_B))
+    A_B = np.where(d < n)
+    B_A = np.where(d < n)
+    Aa = len(A_B[0])
+    B = len(A_B[1])
+    elem = list((int(j) for i in A_B for j in i))
+    
+    return
+
+print("************************** OUR BADASS FUNCTION **********************************")
+
+print(distancia(coordenadas_1,coordenadas_2, 4))
