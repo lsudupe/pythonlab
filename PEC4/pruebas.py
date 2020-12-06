@@ -29,29 +29,34 @@ def obtiene_coordenadas(estructura):
 
 # Coordenadas_1 tiene las coordenadas de la proteína A en formato numpy
 coordenadas_1 = obtiene_coordenadas('es_data_1PPE_rec.pdb')
-print(coordenadas_1)
+print(len(coordenadas_1))
 
 # Coordenadas_2 tiene las coordenadas de la proteína B en formato numpy
 coordenadas_2 = obtiene_coordenadas('es_data_1PPE_lig.pdb')
-print(coordenadas_2)
+print(len(coordenadas_2))
 
 
+#SABEMOS CUANTOS ATOMOS TIENE CADA MOLECULA, LA COSA ES, QUE CUANDO CALCULO A_B Y B_A OBTENGO LA MISMA CANTIDAD DE FILAS Y COLUMNAS, ESTO
+#SERA PORQUE TENGO LOS MISMOS ELEMENTOS QUE SATISFACEN MI CONDICIÓN. POR LO QUE TENDRE QUE VER EN dA_B Y dB_A CUALES CUMPLEN CON MI 
+#CONDICION DE INDICES. CON UN LOOP LO HE INTENDADO PERO NO ME DEJA, POR LO QUE TENGO QUE PENSAR EN ALGO.
 
 #Vamos a calcular las distancias
 def distancia(a,b,n):
-    #d = distance_matrix(a,b)
     dA_B = sp.distance.cdist(a, b)
     dB_A = sp.distance.cdist(b, a)
-    print(len(dB_A))
-    print(len(dA_B))
-    A_B = np.where(d < n)
-    B_A = np.where(d < n)
-    Aa = len(A_B[0])
-    B = len(A_B[1])
-    elem = list((int(j) for i in A_B for j in i))
-    
-    return
+    A_B = np.where(dA_B < n)
+    B_A = np.where(dB_A < n)
 
+
+    '''print(len(dA_B))
+    print(len(dB_A))
+    print(len(A_B[0]))
+    print(len(A_B[1]))
+    print(len(B_A[0]))
+    print(len(B_A[1]))'''
+
+    
+        #return { "Answer 1": ans1, "Answer 2": ans2, "Answer 3": ans3}
 print("************************** OUR BADASS FUNCTION **********************************")
 
 print(distancia(coordenadas_1,coordenadas_2, 4))
