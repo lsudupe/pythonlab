@@ -30,6 +30,7 @@ def obtiene_coordenadas(estructura):
 # Coordenadas_1 tiene las coordenadas de la proteína A en formato numpy
 coordenadas_1 = obtiene_coordenadas('es_data_1PPE_rec.pdb')
 print(len(coordenadas_1))
+print(coordenadas_1)
 
 # Coordenadas_2 tiene las coordenadas de la proteína B en formato numpy
 coordenadas_2 = obtiene_coordenadas('es_data_1PPE_lig.pdb')
@@ -47,16 +48,18 @@ def distancia(a,b,n):
     A_B = np.where(dA_B < n)
     B_A = np.where(dB_A < n)
 
+    print(A_B)
+    print(B_A)
 
-    '''print(len(dA_B))
-    print(len(dB_A))
-    print(len(A_B[0]))
-    print(len(A_B[1]))
-    print(len(B_A[0]))
-    print(len(B_A[1]))'''
+    '''for index in list(A_B):
+        for elem,idx in coordenadas_1:'''
+
+   
+
+
 
     
-        #return { "Answer 1": ans1, "Answer 2": ans2, "Answer 3": ans3}
+    #return { "Answer 1": ans1, "Answer 2": ans2, "Answer 3": ans3}
 print("************************** OUR BADASS FUNCTION **********************************")
 
 print(distancia(coordenadas_1,coordenadas_2, 4))
