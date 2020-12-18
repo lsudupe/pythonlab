@@ -1,12 +1,35 @@
 
-seq = 'ACTGATCGATTACGTATAGTAGAATTCTATCATACATATATATCGATGCGTTCATTAC'
+p = 'CGAAGCAATTGAAACCCCCCCGGCCTGGGAGGCGCAAAAATCTGACCTCTTTGT\
+GAGTTGACCACTTAATTTATGTCTGACCACGAGAAGGGCTACTGATTTGGTA'
+q = 'GGTAGTAGGTTCGCGTACCTCGTTCCGGGGAAAACACAAAGGAGAAGGGAATGC\
+TCCTAGTAGTTTCAGTCTAGCAAACATGTTATAACGCTAACTGTGTGCTGCA'
+
+a = 'CCGTA'
+b = 'ACGTC'
+def hamming(p, q):
+    count = 0
+    for idx, (nuc1, nuc2) in enumerate(zip(p,q)):
+        if nuc1 != nuc2:
+            count += 1
+    return count
+
+print(hamming(p, q))
+print(hamming(a, b))
+
+
+
+
+
+
+
+'''seq = 'ACTGATCGATTACGTATAGTAGAATTCTATCATACATATATATCGATGCGTTCATTAC'
 
 def Ecolisep(secuencia):
     index = secuencia.index('GAATTC') + 1
     seq1, seq2 = secuencia[:index], secuencia[index:]
     return "Nuestra secuencia se divide en dos subsecuencias que son {} y {}".format(seq1, seq2)
 
-print(Ecolisep(seq))
+print(Ecolisep(seq))'''
 
 
 '''from collections import Counter 
