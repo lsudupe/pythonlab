@@ -1,4 +1,15 @@
-from collections import Counter 
+
+seq = 'ACTGATCGATTACGTATAGTAGAATTCTATCATACATATATATCGATGCGTTCATTAC'
+
+def Ecolisep(secuencia):
+    index = secuencia.index('GAATTC') + 1
+    seq1, seq2 = secuencia[:index], secuencia[index:]
+    return "Nuestra secuencia se divide en dos subsecuencias que son {} y {}".format(seq1, seq2)
+
+print(Ecolisep(seq))
+
+
+'''from collections import Counter 
 
 def representation(idx, counter):
     print("Secuencia {}:".format(idx))
@@ -21,5 +32,4 @@ def nucleodite_num(fasta_file_name):
                 counter.update(lin)
     return representation(idx, counter)
         
-
-print(nucleodite_num("assembledSeqs.fa"))
+print(nucleodite_num("assembledSeqs.fa"))'''
