@@ -1,0 +1,8 @@
+#NEXUS
+Begin Taxa;
+ Dimensions NTax=4;
+ TaxLabels A B C D;
+End;
+Begin Trees;
+ Tree tree1=(A:0.20000,B:0.40000,(C:0.20000,D:0.40000):0.50000):0.00000;
+End;
